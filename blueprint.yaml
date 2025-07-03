@@ -60,14 +60,14 @@ action:
       repeat:
         while:
         - condition: template
-          value_template: "{{ repeat.index < 10 }}"
+          value_template: "{{ repeat.index < 20 }}"
         sequence:
         - service: light.turn_on
           target: !input 'light'
           data:
             transition: 1
             brightness_step_pct: 5
-        - delay: .4
+        - delay: .2
   - conditions:
     - "{{ command == 'move' }}"
     - "{{ cluster_id == 8 }}"
@@ -76,14 +76,14 @@ action:
       repeat:
         while:
         - condition: template
-          value_template: "{{ repeat.index < 10 }}"
+          value_template: "{{ repeat.index < 20 }}"
         sequence:
         - service: light.turn_on
           target: !input 'light'
           data:
             transition: 1
             brightness_step_pct: -5
-        - delay: .4
+        - delay: .2
   - conditions:
     - "{{ command == 'stop' }}"
     - "{{ cluster_id == 8 }}"
